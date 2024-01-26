@@ -39,9 +39,9 @@ Please see the [INSTALL](docs/INSTALL.md) guide for instructions.
 Use Case 1:
 
 ```python
-from simple_template_toolkit import Manager as TemplateManager
+from simple_template_toolkit import STTManager
 
-tm = TemplateManager()
+tm = STTManager()
 
 tm.make_substitutions(
   template_file=template_file,  # the template file containing your placeholder values
@@ -53,9 +53,9 @@ tm.make_substitutions(
 Use Case 2:
 
 ```python
-from simple_template_toolkit import Manager as TemplateManager
+from simple_template_toolkit import STTManager
 
-tm = TemplateManager()
+tm = STTManager()
 
 tm.inject_lines(
   template_file=template_file,  # the template file containing your placeholder values

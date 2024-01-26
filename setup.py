@@ -10,7 +10,11 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', ]
+requirements = [
+    'Click>=7.0',
+    "Rich",
+    "PyYAML",
+]
 
 test_requirements = [ ]
 
@@ -30,7 +34,9 @@ setup(
     description="Simple templating for all your simple templating projects",
     entry_points={
         'console_scripts': [
-            'simple_template_toolkit=simple_template_toolkit.cli:main',
+            'make-simple-template-toolkit=simple_template_toolkit.make_wrappers_and_aliases:main',
+            'insert-lines=simple_template_toolkit.insert_lines:main',
+            'make-substitutions=simple_template_toolkit.make_substitutions:main',
         ],
     },
     install_requires=requirements,
@@ -41,7 +47,7 @@ setup(
     packages=find_packages(include=['simple_template_toolkit', 'simple_template_toolkit.*']),
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/jai-python3/simple_template_toolkit',
+    url='https://github.com/jai-python3/simple-template-toolkit',
     version='0.1.0',
     zip_safe=False,
 )
