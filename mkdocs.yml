@@ -25,8 +25,16 @@ plugins:
 nav:
   - Home: index.md
   - Installation: INSTALL.md
+  - Change Log: CHANGELOG.md
   - Code Reference:
   # INSERT CODE REFERENCE SECTION
+    - Click Helper: click_helper.md
+    - Console Helper: console_helper.md
+    - Constants: constants.md
+    - File Utils: file_utils.md
+    - Insert Lines: insert_lines.md
+    - Make Substitutions: make_substitutions.md
+    - Manager: manager.md
 
 
 markdown_extensions:
