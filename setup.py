@@ -34,7 +34,7 @@ setup(
     description="Simple templating for all your simple templating projects",
     entry_points={
         'console_scripts': [
-            'make-simple-template-toolkit=simple_template_toolkit.make_wrappers_and_aliases:main',
+            'make-simple-template-toolkit=simple_template_toolkit.make_shell_scripts_and_aliases:main',
             'insert-lines=simple_template_toolkit.insert_lines:main',
             'make-substitutions=simple_template_toolkit.make_substitutions:main',
         ],
