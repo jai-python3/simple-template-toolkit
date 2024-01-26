@@ -1,0 +1,35 @@
+<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>550</w><h>260</h></coordinates><panel_attributes>bg=green
+Manager
+
+--
+- template_file: str
+- key_val_file: str
+- outdir: str
+- outfile: str
+- verbose: bool
+- _found_keys_lookup: Dict[str, bool]
+- _found_keys_ctr: int
+--
+- _get_lookup(key_val_file: str) -&gt; Dict[str, str]
++ make_substitutions(key_val_file: str, template_file: str, outfile: Optional[str]) -&gt; None
+- _report_substitution_status(lookup: Dict[str, int]) -&gt; None
++ insert_lines(key_val_file: str, template_file: str, outfile: Optional[str]) -&gt; None
+
+--
+// dependencies:
+// import logging
+// import os
+// import yaml
+// from pathlib import Path
+// from rich.console import Console
+// from typing import Dict, List, Optional
+// from . import constants
+// from .file_utils import check_infile_status, check_outfile_status
+
+
+// constants:
+// error_console
+// console
+
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

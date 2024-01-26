@@ -28,7 +28,7 @@ Please see the [TODO](docs/TODO.md) for a list of upcoming improvements.
 
 ## Class Diagrams
 
-![class diagrams](class_diagrams.png)
+![class diagrams](class_diagram.png)
 
 ## Installation
 
