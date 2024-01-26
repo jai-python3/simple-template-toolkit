@@ -1,16 +1,5 @@
-## [v0.1.0](https://github.com/jai-python3/tbd/tree/v0.1.0) - 2023-12-22
+## [v0.1.0](https://github.com/jai-python3/simple-template-toolkit/tree/v0.1.0) - 2024-01-24
 
 ADDS:
-- something
-- something else
-  
-CHANGES:
-- something
-- something else
-  
-FIXES:
-- something
-- something else
-  
-
-
+- Initial support for make-substitutions
+- Initial support for insert-lines
