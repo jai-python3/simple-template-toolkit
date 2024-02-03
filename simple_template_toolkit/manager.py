@@ -45,7 +45,7 @@ class Manager:
         lookup = yaml.safe_load(Path(key_val_file).read_text())
         return lookup
 
-    def make_substitutions(self, key_val_file: str, template_file: str, outfile: Optional[str]) -> None:
+    def make_substitutions(self, key_val_file: Optional[str], template_file: Optional[str], outfile: Optional[str]) -> None:
         """Perform the placeholder substitutions using the template file.
 
         Args:
@@ -58,22 +58,27 @@ class Manager:
             if outfile is None:
                 raise ValueError("outfile must be specified")
 
+        if template_file is None:
+            template_file = self.template_file
+            if template_file is None:
+                raise ValueError("template_file must be specified")
+
         check_infile_status(template_file, "tt")
         check_infile_status(key_val_file, "yaml")
 
         check_outfile_status(outfile)
         lookup: Dict[str, List[str]] = self._get_lookup(key_val_file)
 
-        with open(self.template_file, "r") as template_file:
-            with open(outfile, "w") as output_file:
-                for line in template_file:
+        with open(template_file, "r") as tf:
+            with open(outfile, "w") as of:
+                for line in tf:
                     for key, value in lookup.items():
                         if key in line:
                             line = line.replace(key, value)
                             self._found_keys_lookup[key] += 1
                             self._found_keys_ctr += 1
 
-                    output_file.write(line)
+                    of.write(line)
 
         console.print(f"Created output file '{outfile}'")
         logging.info(f"Created output file '{outfile}'")
