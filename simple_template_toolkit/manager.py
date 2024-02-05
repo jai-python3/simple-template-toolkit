@@ -69,10 +69,23 @@ class Manager:
         check_outfile_status(outfile)
         lookup: Dict[str, List[str]] = self._get_lookup(key_val_file)
 
+        # Some values will themselves have some placholder values
+        # that will need to be substituted with the placeholders that
+        # are keys.
+        for key in lookup:
+            for current_key, val in lookup.items():
+                if key == current_key:
+                    continue
+                if key in val:
+                    lookup[current_key] = val.replace(key, lookup[key])
+
+
         with open(template_file, "r") as tf:
             with open(outfile, "w") as of:
                 for line in tf:
                     for key, value in lookup.items():
+                        if key not in self._found_keys_lookup:
+                            self._found_keys_lookup[key] = 0
                         if key in line:
                             line = line.replace(key, value)
                             self._found_keys_lookup[key] += 1
