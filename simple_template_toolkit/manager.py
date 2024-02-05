@@ -62,6 +62,8 @@ class Manager:
             template_file = self.template_file
             if template_file is None:
                 raise ValueError("template_file must be specified")
+        else:
+            self.template_file = template_file
 
         check_infile_status(template_file, "tt")
         check_infile_status(key_val_file, "yaml")
@@ -105,11 +107,13 @@ class Manager:
             lookup (Dict[str, int]): The lookup of found keys.
         """
         if self._found_keys_ctr > 0:
-            console.print("Found keys lookup:")
+            if self.verbose:
+                console.print("Found keys lookup:")
             logging.info("Found keys lookup:")
 
             for key, count in self._found_keys_lookup.items():
-                console.print(f"Found placeholder '{key}' on '{count}' lines in template file '{self.template_file}'")
+                if self.verbose:
+                    console.print(f"Found placeholder '{key}' on '{count}' lines in template file '{self.template_file}'")
                 logging.info(f"Found placeholder '{key}' on '{count}' lines in template file '{self.template_file}'")
         else:
             console.print(f"None of the placeholders were substituted in template file '{self.template_file}' given the key-value pairs defined in file '{self.key_val_file}'")
