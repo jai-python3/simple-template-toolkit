@@ -65,7 +65,7 @@ class Manager:
         else:
             self.template_file = template_file
 
-        check_infile_status(template_file, "tt")
+        check_infile_status(template_file)
         check_infile_status(key_val_file, "yaml")
 
         check_outfile_status(outfile)
@@ -142,7 +142,7 @@ class Manager:
             if outfile is None:
                 raise ValueError("outfile must be specified")
 
-        check_infile_status(template_file, "tt")
+        check_infile_status(template_file)
         check_infile_status(key_val_file, "yaml")
 
         check_outfile_status(outfile)
