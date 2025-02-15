@@ -36,7 +36,6 @@ Please see the [INSTALL](docs/INSTALL.md) guide for instructions.
 
 ## Usage
 
-Use Case 1:
 
 ```python
 from simple_template_toolkit import STTManager
@@ -44,29 +43,10 @@ from simple_template_toolkit import STTManager
 tm = STTManager()
 
 tm.make_substitutions(
-  template_file=template_file,  # the template file containing your placeholder values
+  template_file=template_file,  # the template file containing your placeholder keys (e.g.: $;PARAM1$;)
   outfile=outfile, # the file that should be written out
-  lookup=lookup # a dictionary contain placeholders for keys and corresponding values replace with
+  lookup=lookup # a dictionary contain placeholders for keys (e.g.: $;PARAM1$;) and corresponding values (e.g.: xyz) replace with
 )
-```
-
-Use Case 2:
-
-```python
-from simple_template_toolkit import STTManager
-
-tm = STTManager()
-
-tm.inject_lines(
-  template_file=template_file,  # the template file containing your placeholder values
-  outfile=outfile, # the file that should be written out
-  lookup=lookup 
-)
-
-# The lookup is a dictionary where the keys are
-# are the line anchors where the lines of code should be inserted.
-# The values are lists (arrays) containing the lines of code that
-# should be inserted at that line anchor.
 ```
 
 ## Exported scripts
